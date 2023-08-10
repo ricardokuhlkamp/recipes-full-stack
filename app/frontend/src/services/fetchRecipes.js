@@ -8,7 +8,7 @@ export const fetchRecipes = async (url) => {
 export const fetchFoodsOrDrinks = async (query, limit) => {
   try {
     const request = await fetchRecipes(
-      `https://${process.env.REACT_APP_API_URL}/${query}s/name`,
+      `${process.env.REACT_APP_API_URL}/${query}s/name`,
       // http://www.the${query}db.com/api/json/v1/1/search.php?s=
     );
     const result = (request.meals || request.drinks).filter(
@@ -24,7 +24,7 @@ export const fetchCategories = async (query) => {
   const limit = 5;
   try {
     const request = await fetch(
-      `https://${process.env.REACT_APP_API_URL}/${query}s/categories`,
+      `${process.env.REACT_APP_API_URL}/${query}s/categories`,
       // http://www.the${query}db.com/api/json/v1/1/list.php?c=list
       // localhost:3001/meals/categories
     );
@@ -42,7 +42,7 @@ export const filterMeals = async (query, category) => {
   const limit = 12;
   try {
     const request = await fetchRecipes(
-      `https://${process.env.REACT_APP_API_URL}/${query}s/category?q=${category}`,
+      `${process.env.REACT_APP_API_URL}/${query}s/category?q=${category}`,
       // http://www.the${query}db.com/api/json/v1/1/filter.php?c=${category}
       // localhost:3001/meals/category?q=
     );
@@ -58,7 +58,7 @@ export const filterMeals = async (query, category) => {
 export const fetchRecipesDeetailsMeals = async (id) => {
   try {
     const response = await fetch(
-      `https://${process.env.REACT_APP_API_URL}/meals/name/${id}`,
+      `${process.env.REACT_APP_API_URL}/meals/name/${id}`,
       // http://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}
       // localhost:3001/meals/name/1
     );
@@ -72,7 +72,7 @@ export const fetchRecipesDeetailsMeals = async (id) => {
 export const fetchRecipesDeetailsDrinks = async (id) => {
   try {
     const response = await fetch(
-      `https://${process.env.REACT_APP_API_URL}/drinks/name/${id}`,
+      `${process.env.REACT_APP_API_URL}/drinks/name/${id}`,
       // http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}
       // localhost:3001/drinks/name/1
     );
@@ -85,7 +85,7 @@ export const fetchRecipesDeetailsDrinks = async (id) => {
 
 export const fetchDetails = async (type, id) => {
   const requestType = type.includes('meal') ? 'meal' : 'drink';
-  const URL = `https://${process.env.REACT_APP_API_URL}/${requestType}s/name/${id}`;
+  const URL = `${process.env.REACT_APP_API_URL}/${requestType}s/name/${id}`;
   // http://www.the${requestType}db.com/api/json/v1/1/lookup.php?i=${id}
   const result = await fetchRecipes(URL);
 

@@ -15,10 +15,10 @@ export default function SearchBar() {
 
   const searchOptionsMap = useMemo(() => ({
     ingredient: (input, showType) =>
-      `https://${process.env.REACT_APP_API_URL}/${showType}s/ingredient?q=${input}`,
-    name: (input, showType) => `https://${process.env.REACT_APP_API_URL}/${showType}s/name?q=${input}`,
+      `${process.env.REACT_APP_API_URL}/${showType}s/ingredient?q=${input}`,
+    name: (input, showType) => `${process.env.REACT_APP_API_URL}/${showType}s/name?q=${input}`,
     firstLetter: (input, showType) =>
-      `https://${process.env.REACT_APP_API_URL}/${showType}s/letter?q=${input}`,
+      `${process.env.REACT_APP_API_URL}/${showType}s/letter?q=${input}`,
   }), [showType]);
 
   const handleFilter = useCallback(async () => {
